@@ -1,6 +1,7 @@
 import React from 'react';
-import Home from '../Home/HomeContainer';
-import Info from '../Info/Info';
+import Home from '../Home/Home';
+import Creator from '../Creator/Creator';
+import Contact from '../Contact/Contact';
 import {BrowserRouter, Route} from 'react-router-dom';
 import MainLayout from '../MainLayout/MainLayout';
 import {AnimatedSwitch} from 'react-router-transition';
@@ -16,7 +17,11 @@ const App = () => (
         className={styles.switchWrapper}
       >
         <Route exact path='/' component={Home} />
-        <Route exact path='/info' component={Info} />
+        <Route exact path='/creator' component={Creator} />
+        <Route exact path='/contact' component={Contact} />
+        <Route path='/creator/:hairColor' render={(props) => <Creator {...props} />} />
+        <Route path='/creator/:hairColor/:eyesColor' render={(props) => <Creator {...props} />} />
+        <Route path='/creator/:hairColor/:eyesColor/:topColor/' render={(props) => <Creator {...props} />} />
       </AnimatedSwitch>
     </MainLayout>
   </BrowserRouter>

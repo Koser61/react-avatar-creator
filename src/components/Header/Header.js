@@ -11,13 +11,12 @@ class Header extends React.Component {
         <Container>
           <div className={styles.wrapper}>
             <Link className={styles.logo} to='/'>
-              <Icon>
-                <i className='fab fa-react'></i>
-              </Icon>
+              <Icon name='user-circle'/>
             </Link>
             <nav>
               <NavLink exact to='/' activeClassName='active'>Home</NavLink>
-              <NavLink exact to='/info' activeClassName='active'>Info</NavLink>
+              <NavLink to='/creator' activeClassName='active'>Creator</NavLink>
+              <NavLink exact to='/contact' activeClassName='active'>Contact</NavLink>
             </nav>
           </div>
         </Container>

@@ -1,28 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import styles from './Home.scss';
-import List from '../List/ListContainer';
-import Search from '../Search/SearchContainer';
+import Jumbotron from '../Jumbotron/Jumbotron';
 
-class Home extends React.Component {
-  static propTypes = {
-    title: PropTypes.node,
-    subtitle: PropTypes.node,
-    lists: PropTypes.array,
-  }
-  render() {
-    const {title, subtitle, lists} = this.props;
-    return (
-      <main className={styles.component}>
-        <h1 className={styles.title}>{title}</h1>
-        <h2 className={styles.subtitle}>{subtitle}</h2>
-        <Search />
-        {lists.map(listData => (
-          <List key={listData.id} {...listData} />
-        ))}
-      </main>
-    );
-  }
-}
+const Home = () => (
+  <Jumbotron title='Home Page'>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </Jumbotron>
+);
 
 export default Home;

@@ -1,65 +1,38 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import Jumbotron from '../Jumbotron/Jumbotron';
 import styles from './Creator.scss';
-import Button from '../Button/Button';
+import PropTypes from 'prop-types';
 
 class Creator extends React.Component {
   static propTypes = {
-    text: PropTypes.string,
-    action: PropTypes.func,
+    match: PropTypes.object,
   }
-
-  static defaultProps = {
-    text: 'Add new item',
-  }
-
-  state = {
-    value: '',
-    visibleButtons: false,
-  }
-
-  handleChange = event => {
-    this.setState({
-      value: event.target.value,
-      visibleButtons: event.target.value.length > 0,
-    });
-  }
-
-  handleOK = () => {
-    const { action } = this.props;
-    if(this.state.value != ''){
-      action(this.state.value);
-      this.setState({
-        value: '',
-        visibleButtons: false,
-      });
-    }
-  }
-
-  handleCancel = () => {
-    if(window.confirm('Do you really want to cancel adding item ?')){
-      this.setState({
-        value: '',
-        visibleButtons: false,
-      });
-    }
-  }
-
   render() {
-    const { text } = this.props;
+    const eyesColor = this.props.match.params.eyesColor,
+      hairColor = this.props.match.params.hairColor,
+      topColor = this.props.match.params.topColor,
+      eyesDivStyle = {
+        background: eyesColor,
+      },
+      hairDivStyle = {
+        background: hairColor,
+      },
+      topDivStyle = {
+        background: topColor,
+      };
     return (
-      <div className={styles.component}>
-        <input
-          type='text'
-          placeholder={text}
-          value={this.state.value}
-          onChange={this.handleChange}
-        />
-        <div className={styles.buttons + (this.state.visibleButtons ? ' ' + styles.buttonsShown : '')}>
-          <Button onClick={this.handleOK} variant=''>OK</Button>
-          <Button onClick={this.handleCancel} variant='danger'>cancel</Button>
+      <Jumbotron title='Avatar Creator'>
+        <div className={styles.profile}>
+          <div className={styles.group}>
+            <div className={styles.face}></div>
+            <div className={styles.eye} style={eyesDivStyle}></div>
+            <div className={styles.mouth}></div>
+            <div className={styles.hair} style={hairDivStyle}></div>
+            <div className={styles.neck}></div>
+            <div className={styles.body} style={topDivStyle}></div>
+          </div>
         </div>
-      </div>
+      </Jumbotron>
     );
   }
 }

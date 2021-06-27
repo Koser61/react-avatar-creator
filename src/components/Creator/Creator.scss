@@ -1,41 +1,94 @@
-@import '../../styles/settings.scss';
-
-.component {
-  width: 100%;
-
-  input {
-    width: 100%;
-    background: $color-light;
-    border: 1px solid lighten($color-dark, 60%);
-    padding: $base-size ($base-size * 1.5);
-    margin: 0 0 $base-size 0;
-    font-family: $font-text;
-    border-radius: $radius;
+.profile {
+  margin: 0 auto;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  overflow: hidden;
+  background: #e8e9eb;
+  
+  .group {
+    left: -4px;
   }
-}
-
-.buttons {
-  display: flex;
-  justify-content: space-between;
-  opacity: 0;
-  height: 0;
-  transition: all 200ms;
-
-  &.buttonsShown {
-    opacity: 1;
-    height: 40px;
+  
+  .group,
+  .face,
+  .eye,
+  .mouth,
+  .hair,
+  .neck,
+  .body {
+    position: absolute;
   }
+  
+  .face {
+    border-radius: 100px;
+    z-index: 20;
+    top: 50px;
+    left: 65px;
+    width: 80px;
+    height: 100px;
+    background: #f0beaf;
+  }
+  
+  .eye {
+    z-index: 30;
+    top: 95px;
+    left: 87px;
+    width: 10px;
+    height: 10px;
+    background: #424b54;
+    border-radius: 100%;
 
-  > * {
-    flex-grow: 1;
-    flex-basis: 0;
-
-    &:first-child {
-      margin: 0;
-
-      ~ * {
-        margin: 0 0 0 $base-size;
-      }
+    &::before {
+      position: absolute;
+      content: "";
+      left: 25px;
+      width: 10px;
+      height: 10px;
+      background: inherit;
+      border-radius: 100%;
     }
+  }
+  
+  .mouth {
+    z-index: 20;
+    top: 120px;
+    left: 90px;
+    width: 30px;
+    height: 15px;
+    border-radius: 0 0 100px 100px;
+    background: #424b54;
+    overflow: hidden;
+  }
+  
+  .hair {
+    z-index: 99;
+    top: 40px;
+    left: 64px;
+    width: 83px;
+    height: 44px;
+    border-radius: 100px 100px 0 0;
+    background: #424b54;
+  }
+  
+  .neck {
+    z-index: 13;
+    width: 30px;
+    height: 30px;
+    background: #f0beaf;
+    top: 130px;
+    left: 90px;
+    border-radius: 100%;
+  }
+  
+  .body {
+    z-index: 10;
+    top: 150px;
+    left: 55px;
+    width: 100px;
+    height: 150px;
+    background: #4d9de0;
+    border-radius: 100px;
   }
 }

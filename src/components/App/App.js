@@ -19,9 +19,9 @@ const App = () => (
         <Route exact path='/' component={Home} />
         <Route exact path='/creator' component={Creator} />
         <Route exact path='/contact' component={Contact} />
-        <Route path='/creator/:hairColor' render={(props) => <Creator {...props} />} />
-        <Route path='/creator/:hairColor/:eyesColor' render={(props) => <Creator {...props} />} />
         <Route path='/creator/:hairColor/:eyesColor/:topColor/' render={(props) => <Creator {...props} />} />
+        <Route path='/creator/:hairColor/:eyesColor' render={(props) => <Creator {...props} />} />
+        <Route path='/creator/:hairColor' render={(props) => <Creator {...props} />} />
       </AnimatedSwitch>
     </MainLayout>
   </BrowserRouter>
